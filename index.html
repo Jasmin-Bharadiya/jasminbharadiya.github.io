@@ -3,39 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jasmin Bharadiya | Portfolio</title>
+  <title>Jasmin Bharadiya, PhD | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
+    :root {
+      --navy: #1e3a8a;
+      --lavender: #e0e7ff;
+      --gray: #f1f5f9;
+      --white: #ffffff;
+    }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: #f8f9fa;
+      background: var(--gray);
       color: #333;
       line-height: 1.6;
     }
     header {
       text-align: center;
-      padding: 2rem 1rem;
-      background: #ffffff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      padding: 3rem 1rem 2rem;
+      background: var(--navy);
+      color: var(--white);
+      background-image: linear-gradient(135deg, var(--navy), #3b82f6);
+      animation: fadeIn 2s ease;
     }
     header img {
       width: 120px;
       border-radius: 50%;
       margin-bottom: 1rem;
+      border: 4px solid var(--white);
     }
     header h1 {
       margin: 0.5rem 0 0.2rem;
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 800;
     }
     header p {
       font-weight: 600;
-      color: #6c757d;
+      color: #d1d5db;
+    }
+    nav {
+      margin-top: 1rem;
     }
     nav a {
       margin: 0 1rem;
-      color: #0077b6;
+      color: var(--lavender);
       text-decoration: none;
       font-weight: 600;
     }
@@ -44,26 +57,46 @@
     }
     section {
       padding: 2rem 1rem;
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
-      background: #fff;
-      margin-top: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
     }
     h2 {
-      color: #222;
-      border-bottom: 2px solid #eee;
+      color: #111827;
+      border-bottom: 2px solid #e5e7eb;
       padding-bottom: 0.5rem;
     }
-    ul li {
-      margin: 0.5rem 0;
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      margin-top: 0;
     }
     footer {
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
-      color: #999;
+      color: #6b7280;
+    }
+    .icon {
+      margin-right: 6px;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-10px);}
+      to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
@@ -73,10 +106,10 @@
     <h1>Jasmin Bharadiya, PhD</h1>
     <p>Senior Data Engineer | AI Researcher</p>
     <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#blog">Blog</a>
-      <a href="#contact">Contact</a>
+      <a href="#about"><i class="fas fa-user icon"></i>About</a>
+      <a href="#projects"><i class="fas fa-laptop-code icon"></i>Projects</a>
+      <a href="#blog"><i class="fas fa-blog icon"></i>Blog</a>
+      <a href="#contact"><i class="fab fa-linkedin icon"></i>Contact</a>
     </nav>
   </header>
 
@@ -87,25 +120,58 @@
 
   <section id="projects">
     <h2>Projects & Research</h2>
-    <ul>
-      <li><strong>MGA-VQA:</strong> Visual question answering using multi-granularity alignment Transformers.</li>
-      <li><strong>SA-VQA:</strong> Self-attention-based VQA for abstract reasoning in images.</li>
-      <li><strong>LLMOps Toolkit:</strong> Built reusable components and deployment pipelines for language models.</li>
-    </ul>
+    <div class="card-grid">
+      <div class="card">
+        <h3>MGA-VQA</h3>
+        <p>Visual question answering using multi-granularity alignment Transformers.</p>
+      </div>
+      <div class="card">
+        <h3>SA-VQA</h3>
+        <p>Self-attention-based VQA for abstract reasoning in images.</p>
+      </div>
+      <div class="card">
+        <h3>LLMOps Toolkit</h3>
+        <p>Built reusable components and deployment pipelines for large language models.</p>
+      </div>
+    </div>
   </section>
 
   <section id="blog">
-    <h2>Blog</h2>
-    <p>Read my latest insights on <a href="https://jasminbharadiya.medium.com" target="_blank">Medium</a>.</p>
+    <h2>Blog – Founder & Author on Medium</h2>
+    <div id="medium-posts" class="card-grid"></div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Connect with me on <a href="https://www.linkedin.com/in/jasmin-bharadiya-phd-311533123/" target="_blank">LinkedIn</a>.</p>
+    <div class="card" style="text-align: center;">
+      <img src="https://media.licdn.com/dms/image/D4E03AQGT8VVTiE9FFw/profile-displayphoto-shrink_200_200/0/1688564539846?e=2147483647&v=beta&t=3jOl8Q9T4KpmMQkmGCoGox4Yr1FRuCgdU4vktnQpHvM" alt="LinkedIn" style="width:80px; border-radius:50%; margin-bottom: 0.5rem;"/>
+      <p><strong>Jasmin Bharadiya</strong><br />Senior Data Engineer</p>
+      <a href="https://www.linkedin.com/in/jasmin-bharadiya-phd-311533123/" target="_blank" style="display:inline-block; margin-top:10px; background:#0077b5; color:#fff; padding:0.5rem 1rem; border-radius:5px; text-decoration:none; font-weight:600;">Connect on LinkedIn</a>
+    </div>
   </section>
 
   <footer>
     &copy; 2025 Jasmin Bharadiya. All rights reserved.
   </footer>
+
+  <script>
+    async function fetchMediumPosts() {
+      const rss2json = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@jasminbharadiya`;
+      try {
+        const res = await fetch(rss2json);
+        const data = await res.json();
+        const container = document.getElementById("medium-posts");
+        data.items.slice(0, 3).forEach(post => {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `<h3><a href="${post.link}" target="_blank">${post.title}</a></h3><p>${post.description.slice(0, 120)}...</p>`;
+          container.appendChild(card);
+        });
+      } catch (err) {
+        console.error("Failed to fetch Medium posts", err);
+      }
+    }
+    fetchMediumPosts();
+  </script>
 </body>
 </html>
